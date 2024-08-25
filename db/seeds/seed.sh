@@ -1,6 +1,6 @@
 #!/bin/bash
 
-HOST="pg-db"
+HOST="localhost"
 USER="postgres"
 PASSWORD="postgres"
 DB="seryu_cargo_db"
@@ -9,7 +9,7 @@ run_copy_command() {
     local table=$1
     local file=$2
 
-    psql postgresql://$USER:$PASSWORD@localhost:5432/$DB "\copy $table from '/docker-entrypoint-initdb.d/$file' delimiter ',' CSV HEADER;"
+    psql postgresql://$USER:$PASSWORD@$HOST:5432/$DB -c "\copy $table from '/docker-entrypoint-initdb.d/$file' delimiter ',' CSV HEADER;"
 }
 
 run_copy_command "drivers" "drivers.csv"
