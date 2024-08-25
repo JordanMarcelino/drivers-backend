@@ -3,7 +3,6 @@ package repository
 import (
 	"context"
 	"database/sql"
-	"log"
 
 	"github.com/JordanMarcelino/drivers-backend/internal/dto"
 	"github.com/JordanMarcelino/drivers-backend/internal/entity"
@@ -85,7 +84,6 @@ func (r *driverRepositoryImpl) FindAll(ctx context.Context, params *dto.DriverQu
 		params.Status,
 	)
 	if err != nil {
-		log.Println(err)
 		return nil, err
 	}
 	defer rows.Close()

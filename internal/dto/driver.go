@@ -23,7 +23,7 @@ type DriverQueryDTO struct {
 	Month      int    `form:"month" binding:"required,numeric,gte=1,lte=12"`
 	Year       int    `form:"year" binding:"required,numeric,gte=2010"`
 	PageSize   int    `form:"page_size" binding:"omitempty,gte=1,lte=20"`
-	Current    int    `form:"current" binding:"omitempty,min=1"`
+	Current    int    `form:"current" binding:"omitempty,gte=1"`
 }
 
 func ConvertToDriverDTOs(drivers []*entity.Driver) []*DriverDTO {
