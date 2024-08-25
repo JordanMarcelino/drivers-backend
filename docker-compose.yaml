@@ -1,14 +1,15 @@
-version: "3.8"
+version: "3.9"
 
 services:
   drivers-api:
     build:
       context: .
+      dockerfile: Dockerfile
     restart: always
     ports:
       - "8000:8000"
     depends_on:
-      postgres:
+      pg-db:
         condition: service_healthy
 
   pg-db:
@@ -22,7 +23,7 @@ services:
       - PGDATA=/var/lib/postgresql/data/pgdata
     volumes:
       - ./db/migrations/migration.sql:/docker-entrypoint-initdb.d/migration.sql
-      - ./db/seeds:/docker-entrypoint-initdb.d
+      - ./db/seeds:/docker-entrypoint-initdb.d/seeds
       - pgdata:/var/lib/postgresql/data
     healthcheck:
       test: pg_isready -U postgres -d seryu_cargo_db
