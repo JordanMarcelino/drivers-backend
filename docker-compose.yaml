@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  drivers-api:
+    build:
+      context: .
+    restart: always
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  pg-db:
+    image: postgres:16.4-alpine3.19
+    ports:
+      - 5431:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=seryu_cargo_db
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - ./db/migrations/migration.sql:/docker-entrypoint-initdb.d/migration.sql
+      - ./db/seeds:/docker-entrypoint-initdb.d
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: pg_isready -U postgres -d seryu_cargo_db
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  pgdata:
