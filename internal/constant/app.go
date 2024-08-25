@@ -1,5 +1,7 @@
 package constant
 
+import "github.com/shopspring/decimal"
+
 const (
 	ResponseSuccessMessage = "success"
 )
@@ -14,6 +16,10 @@ const (
 	SHIPMENT_COST_STATUS_PENDING   = "PENDING"
 	SHIPMENT_COST_STATUS_CONFIRMED = "CONFIRMED"
 	SHIPMENT_COST_STATUS_PAID      = "PAID"
+)
+
+var (
+	MIN_DRIVER_SALARY = decimal.NewFromInt(0)
 )
 
 var (

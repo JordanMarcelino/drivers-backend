@@ -4,6 +4,7 @@ import (
 	"context"
 	"database/sql"
 
+	"github.com/JordanMarcelino/drivers-backend/internal/constant"
 	"github.com/JordanMarcelino/drivers-backend/internal/dto"
 	"github.com/JordanMarcelino/drivers-backend/internal/entity"
 )
@@ -26,7 +27,7 @@ const (
 			COUNT(DISTINCT CASE WHEN da.attendance_status = TRUE THEN da.attendance_date END) * vc.value, 0
 		) AS total_attendance_salary,
 		COALESCE(
-			SUM(CASE WHEN sc.cost_status IN ('PENDING', 'CONFIRMED', 'PAID') AND s.shipment_status != 'CANCELLED' THEN sc.	total_costs ELSE 0 END) + 
+			SUM(CASE WHEN sc.cost_status IN ('PENDING', 'CONFIRMED', 'PAID') AND s.shipment_status != 'CANCELLED' THEN sc.total_costs ELSE 0 END) + 
         	COUNT(DISTINCT CASE WHEN da.attendance_status = TRUE THEN da.attendance_date END) * vc.value, 0
 		) AS total_salary,
 		COALESCE(
@@ -104,7 +105,9 @@ func (r *driverRepositoryImpl) FindAll(ctx context.Context, params *dto.DriverQu
 			return nil, err
 		}
 
-		drivers = append(drivers, driver)
+		if driver.TotalSalary.GreaterThan(constant.MIN_DRIVER_SALARY) {
+			drivers = append(drivers, driver)
+		}
 	}
 
 	err = rows.Err()
