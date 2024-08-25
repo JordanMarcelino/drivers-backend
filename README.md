@@ -24,6 +24,8 @@ API that shows all the drivers salary
     docker compose up -d --build
     ```
 
+4. Import Postman Collection at `docs/Postman-Collection.json` to Postman and try the API
+
 ## How to Stop
 
 ```bash
