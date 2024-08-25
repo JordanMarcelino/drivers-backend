@@ -11,6 +11,7 @@ import (
 	"time"
 
 	"github.com/JordanMarcelino/drivers-backend/internal/config"
+	"github.com/JordanMarcelino/drivers-backend/internal/dto"
 	"github.com/JordanMarcelino/drivers-backend/internal/handler/httphandler"
 	"github.com/JordanMarcelino/drivers-backend/internal/httpserver/middleware"
 	"github.com/JordanMarcelino/drivers-backend/internal/pkg/database"
@@ -53,6 +54,12 @@ func initServer(cfg *config.Config) *http.Server {
 		gin.Recovery(),
 	}
 	r.Use(middlewares...)
+
+	r.NoRoute(func(ctx *gin.Context) {
+		ctx.JSON(http.StatusNotFound, dto.WebResponse[any]{
+			Message: "route not found",
+		})
+	})
 
 	v1 := r.Group("/v1")
 	{
