@@ -1,0 +1,435 @@
+{
+	"info": {
+		"_postman_id": "8df4b0dd-32aa-4d51-a32d-329cb2bb436b",
+		"name": "Drivers API",
+		"description": "API that shows all the drivers salary",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "19847270"
+	},
+	"item": [
+		{
+			"name": "Driver Salary",
+			"item": [
+				{
+					"name": "FindAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/v1/salary/driver/list?month=3&year=2024&current=1&page_size=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"salary",
+								"driver",
+								"list"
+							],
+							"query": [
+								{
+									"key": "month",
+									"value": "3"
+								},
+								{
+									"key": "year",
+									"value": "2024"
+								},
+								{
+									"key": "status",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "driver_code",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "current",
+									"value": "1"
+								},
+								{
+									"key": "page_size",
+									"value": "10"
+								}
+							]
+						},
+						"description": "#### Query Params / Filters\n\n| Params Key | Default Value | Description | Required |\n| month |  | filter based on the shipment_date month | yes |\n| year |  | filter based on the shipment_date year | yes |\n| page_size | 10 | total per page | no |\n| current | 1 | page number | no |\n| driver_code |  | Get the specific payroll of a driver | no |\n| status |  | Possible values :  <br>\\- PENDING : returns all drivers that have total_pending >0  <br>\\- CONFIRMED : returns all drivers that have total_confirmed > 0  <br>\\- PAID : returns all drivers that have total_paid >0 but total_confirmed = 0 and total_pending = 0 | no |\n| name |  | filters driver name that contains this string |  |"
+					},
+					"response": [
+						{
+							"name": "Default",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/v1/salary/driver/list?month=3&year=2024&current=1&page_size=10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"v1",
+										"salary",
+										"driver",
+										"list"
+									],
+									"query": [
+										{
+											"key": "month",
+											"value": "3"
+										},
+										{
+											"key": "year",
+											"value": "2024"
+										},
+										{
+											"key": "status",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "driver_code",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "current",
+											"value": "1"
+										},
+										{
+											"key": "page_size",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 25 Aug 2024 13:48:55 GMT"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"success\",\n    \"data\": [\n        {\n            \"driver_code\": \"DRIVER001\",\n            \"name\": \"Driver Name 1\",\n            \"total_pending\": \"625600000\",\n            \"total_confirmed\": \"67200000\",\n            \"total_paid\": \"414400000\",\n            \"total_attendance_salary\": \"800000\",\n            \"total_salary\": \"1108000000\",\n            \"count_shipment\": 11\n        },\n        {\n            \"driver_code\": \"DRIVER002\",\n            \"name\": \"Driver Name 2\",\n            \"total_pending\": \"210000000\",\n            \"total_confirmed\": \"117600000\",\n            \"total_paid\": \"493500000\",\n            \"total_attendance_salary\": \"1050000\",\n            \"total_salary\": \"822150000\",\n            \"count_shipment\": 9\n        },\n        {\n            \"driver_code\": \"DRIVER003\",\n            \"name\": \"Driver Name 3\",\n            \"total_pending\": \"116400000\",\n            \"total_confirmed\": \"178800000\",\n            \"total_paid\": \"87600000\",\n            \"total_attendance_salary\": \"600000\",\n            \"total_salary\": \"383400000\",\n            \"count_shipment\": 7\n        },\n        {\n            \"driver_code\": \"DRIVER004\",\n            \"name\": \"Driver Name 4\",\n            \"total_pending\": \"533900000\",\n            \"total_confirmed\": \"222300000\",\n            \"total_paid\": \"522500000\",\n            \"total_attendance_salary\": \"950000\",\n            \"total_salary\": \"1279650000\",\n            \"count_shipment\": 13\n        },\n        {\n            \"driver_code\": \"DRIVER005\",\n            \"name\": \"Driver Name 5\",\n            \"total_pending\": \"753100000\",\n            \"total_confirmed\": \"776900000\",\n            \"total_paid\": \"35700000\",\n            \"total_attendance_salary\": \"850000\",\n            \"total_salary\": \"1566550000\",\n            \"count_shipment\": 17\n        },\n        {\n            \"driver_code\": \"DRIVER006\",\n            \"name\": \"Driver Name 6\",\n            \"total_pending\": \"159600000\",\n            \"total_confirmed\": \"0\",\n            \"total_paid\": \"243200000\",\n            \"total_attendance_salary\": \"950000\",\n            \"total_salary\": \"403750000\",\n            \"count_shipment\": 4\n        },\n        {\n            \"driver_code\": \"DRIVER007\",\n            \"name\": \"Driver Name 7\",\n            \"total_pending\": \"541500000\",\n            \"total_confirmed\": \"133000000\",\n            \"total_paid\": \"222300000\",\n            \"total_attendance_salary\": \"950000\",\n            \"total_salary\": \"897750000\",\n            \"count_shipment\": 8\n        },\n        {\n            \"driver_code\": \"DRIVER008\",\n            \"name\": \"Driver Name 8\",\n            \"total_pending\": \"210600000\",\n            \"total_confirmed\": \"210600000\",\n            \"total_paid\": \"351000000\",\n            \"total_attendance_salary\": \"650000\",\n            \"total_salary\": \"772850000\",\n            \"count_shipment\": 13\n        },\n        {\n            \"driver_code\": \"DRIVER009\",\n            \"name\": \"Driver Name 9\",\n            \"total_pending\": \"360800000\",\n            \"total_confirmed\": \"541200000\",\n            \"total_paid\": \"15400000\",\n            \"total_attendance_salary\": \"1100000\",\n            \"total_salary\": \"918500000\",\n            \"count_shipment\": 8\n        },\n        {\n            \"driver_code\": \"DRIVER010\",\n            \"name\": \"Driver Name 10\",\n            \"total_pending\": \"187200000\",\n            \"total_confirmed\": \"304800000\",\n            \"total_paid\": \"229200000\",\n            \"total_attendance_salary\": \"600000\",\n            \"total_salary\": \"721800000\",\n            \"count_shipment\": 11\n        }\n    ],\n    \"total_row\": 35,\n    \"current\": 1,\n    \"page_size\": 10\n}"
+						},
+						{
+							"name": "Validation Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/v1/salary/driver/list?month=0&year=0&status=WRONG&current=-1&page_size=0",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"v1",
+										"salary",
+										"driver",
+										"list"
+									],
+									"query": [
+										{
+											"key": "month",
+											"value": "0"
+										},
+										{
+											"key": "year",
+											"value": "0"
+										},
+										{
+											"key": "status",
+											"value": "WRONG"
+										},
+										{
+											"key": "name",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "driver_code",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "current",
+											"value": "-1"
+										},
+										{
+											"key": "page_size",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 25 Aug 2024 13:50:22 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "307"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"input validation error\",\n    \"errors\": [\n        {\n            \"field\": \"status\",\n            \"message\": \"status possible values are ['PENDING', 'CONFIRMED', 'PAID']\"\n        },\n        {\n            \"field\": \"month\",\n            \"message\": \"month is required\"\n        },\n        {\n            \"field\": \"year\",\n            \"message\": \"year is required\"\n        },\n        {\n            \"field\": \"current\",\n            \"message\": \"current must be greater than or equal to 1\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "Filter by Status",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/v1/salary/driver/list?month=3&year=2024&status=CONFIRMED&current=1&page_size=10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"v1",
+										"salary",
+										"driver",
+										"list"
+									],
+									"query": [
+										{
+											"key": "month",
+											"value": "3"
+										},
+										{
+											"key": "year",
+											"value": "2024"
+										},
+										{
+											"key": "status",
+											"value": "CONFIRMED"
+										},
+										{
+											"key": "name",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "driver_code",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "current",
+											"value": "1"
+										},
+										{
+											"key": "page_size",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 25 Aug 2024 13:51:41 GMT"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"success\",\n    \"data\": [\n        {\n            \"driver_code\": \"DRIVER001\",\n            \"name\": \"Driver Name 1\",\n            \"total_pending\": \"625600000\",\n            \"total_confirmed\": \"67200000\",\n            \"total_paid\": \"414400000\",\n            \"total_attendance_salary\": \"800000\",\n            \"total_salary\": \"1108000000\",\n            \"count_shipment\": 11\n        },\n        {\n            \"driver_code\": \"DRIVER002\",\n            \"name\": \"Driver Name 2\",\n            \"total_pending\": \"210000000\",\n            \"total_confirmed\": \"117600000\",\n            \"total_paid\": \"493500000\",\n            \"total_attendance_salary\": \"1050000\",\n            \"total_salary\": \"822150000\",\n            \"count_shipment\": 9\n        },\n        {\n            \"driver_code\": \"DRIVER003\",\n            \"name\": \"Driver Name 3\",\n            \"total_pending\": \"116400000\",\n            \"total_confirmed\": \"178800000\",\n            \"total_paid\": \"87600000\",\n            \"total_attendance_salary\": \"600000\",\n            \"total_salary\": \"383400000\",\n            \"count_shipment\": 7\n        },\n        {\n            \"driver_code\": \"DRIVER004\",\n            \"name\": \"Driver Name 4\",\n            \"total_pending\": \"533900000\",\n            \"total_confirmed\": \"222300000\",\n            \"total_paid\": \"522500000\",\n            \"total_attendance_salary\": \"950000\",\n            \"total_salary\": \"1279650000\",\n            \"count_shipment\": 13\n        },\n        {\n            \"driver_code\": \"DRIVER005\",\n            \"name\": \"Driver Name 5\",\n            \"total_pending\": \"753100000\",\n            \"total_confirmed\": \"776900000\",\n            \"total_paid\": \"35700000\",\n            \"total_attendance_salary\": \"850000\",\n            \"total_salary\": \"1566550000\",\n            \"count_shipment\": 17\n        },\n        {\n            \"driver_code\": \"DRIVER007\",\n            \"name\": \"Driver Name 7\",\n            \"total_pending\": \"541500000\",\n            \"total_confirmed\": \"133000000\",\n            \"total_paid\": \"222300000\",\n            \"total_attendance_salary\": \"950000\",\n            \"total_salary\": \"897750000\",\n            \"count_shipment\": 8\n        },\n        {\n            \"driver_code\": \"DRIVER008\",\n            \"name\": \"Driver Name 8\",\n            \"total_pending\": \"210600000\",\n            \"total_confirmed\": \"210600000\",\n            \"total_paid\": \"351000000\",\n            \"total_attendance_salary\": \"650000\",\n            \"total_salary\": \"772850000\",\n            \"count_shipment\": 13\n        },\n        {\n            \"driver_code\": \"DRIVER009\",\n            \"name\": \"Driver Name 9\",\n            \"total_pending\": \"360800000\",\n            \"total_confirmed\": \"541200000\",\n            \"total_paid\": \"15400000\",\n            \"total_attendance_salary\": \"1100000\",\n            \"total_salary\": \"918500000\",\n            \"count_shipment\": 8\n        },\n        {\n            \"driver_code\": \"DRIVER010\",\n            \"name\": \"Driver Name 10\",\n            \"total_pending\": \"187200000\",\n            \"total_confirmed\": \"304800000\",\n            \"total_paid\": \"229200000\",\n            \"total_attendance_salary\": \"600000\",\n            \"total_salary\": \"721800000\",\n            \"count_shipment\": 11\n        },\n        {\n            \"driver_code\": \"DRIVER011\",\n            \"name\": \"Driver Name 11\",\n            \"total_pending\": \"237500000\",\n            \"total_confirmed\": \"227500000\",\n            \"total_paid\": \"300000000\",\n            \"total_attendance_salary\": \"1250000\",\n            \"total_salary\": \"766250000\",\n            \"count_shipment\": 6\n        }\n    ],\n    \"total_row\": 33,\n    \"current\": 1,\n    \"page_size\": 10\n}"
+						},
+						{
+							"name": "Filter by Driver Code",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/v1/salary/driver/list?month=3&year=2024&driver_code=DRIVER004&current=1&page_size=10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"v1",
+										"salary",
+										"driver",
+										"list"
+									],
+									"query": [
+										{
+											"key": "month",
+											"value": "3"
+										},
+										{
+											"key": "year",
+											"value": "2024"
+										},
+										{
+											"key": "status",
+											"value": "CONFIRMED",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "driver_code",
+											"value": "DRIVER004"
+										},
+										{
+											"key": "current",
+											"value": "1"
+										},
+										{
+											"key": "page_size",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 25 Aug 2024 13:52:38 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "288"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"success\",\n    \"data\": [\n        {\n            \"driver_code\": \"DRIVER004\",\n            \"name\": \"Driver Name 4\",\n            \"total_pending\": \"533900000\",\n            \"total_confirmed\": \"222300000\",\n            \"total_paid\": \"522500000\",\n            \"total_attendance_salary\": \"950000\",\n            \"total_salary\": \"1279650000\",\n            \"count_shipment\": 13\n        }\n    ],\n    \"total_row\": 1,\n    \"current\": 1,\n    \"page_size\": 10\n}"
+						},
+						{
+							"name": "Filter by Name",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/v1/salary/driver/list?month=3&year=2024&name=Driver Name 1&current=1&page_size=10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"v1",
+										"salary",
+										"driver",
+										"list"
+									],
+									"query": [
+										{
+											"key": "month",
+											"value": "3"
+										},
+										{
+											"key": "year",
+											"value": "2024"
+										},
+										{
+											"key": "status",
+											"value": "CONFIRMED",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "Driver Name 1"
+										},
+										{
+											"key": "driver_code",
+											"value": "DRIVER004",
+											"disabled": true
+										},
+										{
+											"key": "current",
+											"value": "1"
+										},
+										{
+											"key": "page_size",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 25 Aug 2024 13:53:08 GMT"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"success\",\n    \"data\": [\n        {\n            \"driver_code\": \"DRIVER001\",\n            \"name\": \"Driver Name 1\",\n            \"total_pending\": \"625600000\",\n            \"total_confirmed\": \"67200000\",\n            \"total_paid\": \"414400000\",\n            \"total_attendance_salary\": \"800000\",\n            \"total_salary\": \"1108000000\",\n            \"count_shipment\": 11\n        },\n        {\n            \"driver_code\": \"DRIVER010\",\n            \"name\": \"Driver Name 10\",\n            \"total_pending\": \"187200000\",\n            \"total_confirmed\": \"304800000\",\n            \"total_paid\": \"229200000\",\n            \"total_attendance_salary\": \"600000\",\n            \"total_salary\": \"721800000\",\n            \"count_shipment\": 11\n        },\n        {\n            \"driver_code\": \"DRIVER011\",\n            \"name\": \"Driver Name 11\",\n            \"total_pending\": \"237500000\",\n            \"total_confirmed\": \"227500000\",\n            \"total_paid\": \"300000000\",\n            \"total_attendance_salary\": \"1250000\",\n            \"total_salary\": \"766250000\",\n            \"count_shipment\": 6\n        },\n        {\n            \"driver_code\": \"DRIVER012\",\n            \"name\": \"Driver Name 12\",\n            \"total_pending\": \"436000000\",\n            \"total_confirmed\": \"44000000\",\n            \"total_paid\": \"348000000\",\n            \"total_attendance_salary\": \"1000000\",\n            \"total_salary\": \"829000000\",\n            \"count_shipment\": 8\n        },\n        {\n            \"driver_code\": \"DRIVER013\",\n            \"name\": \"Driver Name 13\",\n            \"total_pending\": \"153000000\",\n            \"total_confirmed\": \"691200000\",\n            \"total_paid\": \"86400000\",\n            \"total_attendance_salary\": \"900000\",\n            \"total_salary\": \"931500000\",\n            \"count_shipment\": 11\n        },\n        {\n            \"driver_code\": \"DRIVER014\",\n            \"name\": \"Driver Name 14\",\n            \"total_pending\": \"141900000\",\n            \"total_confirmed\": \"73700000\",\n            \"total_paid\": \"310200000\",\n            \"total_attendance_salary\": \"550000\",\n            \"total_salary\": \"526350000\",\n            \"count_shipment\": 10\n        },\n        {\n            \"driver_code\": \"DRIVER015\",\n            \"name\": \"Driver Name 15\",\n            \"total_pending\": \"422100000\",\n            \"total_confirmed\": \"275100000\",\n            \"total_paid\": \"289800000\",\n            \"total_attendance_salary\": \"1050000\",\n            \"total_salary\": \"988050000\",\n            \"count_shipment\": 10\n        },\n        {\n            \"driver_code\": \"DRIVER016\",\n            \"name\": \"Driver Name 16\",\n            \"total_pending\": \"206400000\",\n            \"total_confirmed\": \"355200000\",\n            \"total_paid\": \"316800000\",\n            \"total_attendance_salary\": \"800000\",\n            \"total_salary\": \"879200000\",\n            \"count_shipment\": 12\n        },\n        {\n            \"driver_code\": \"DRIVER017\",\n            \"name\": \"Driver Name 17\",\n            \"total_pending\": \"334900000\",\n            \"total_confirmed\": \"525300000\",\n            \"total_paid\": \"912900000\",\n            \"total_attendance_salary\": \"850000\",\n            \"total_salary\": \"1773950000\",\n            \"count_shipment\": 17\n        },\n        {\n            \"driver_code\": \"DRIVER018\",\n            \"name\": \"Driver Name 18\",\n            \"total_pending\": \"199500000\",\n            \"total_confirmed\": \"340500000\",\n            \"total_paid\": \"468000000\",\n            \"total_attendance_salary\": \"750000\",\n            \"total_salary\": \"1008750000\",\n            \"count_shipment\": 12\n        }\n    ],\n    \"total_row\": 11,\n    \"current\": 1,\n    \"page_size\": 10\n}"
+						}
+					]
+				}
+			],
+			"description": "This endpoint contains all drivers salary data"
+		}
+	]
+}
